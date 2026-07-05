@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="《研究生的一天》植物实验室生存指南">
+  <title>《研究生的一天》-《植物实验室生存指南》</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <main id="app">
+    <section id="homeScreen" class="screen home-screen active">
+      <div class="home-copy">
+        <p class="eyebrow">植物实验室生存模拟</p>
+        <h1>《研究生的一天》</h1>
+        <h2>《植物实验室生存指南》</h2>
+        <p id="tagline" class="tagline">白天养植物，晚上改论文，凌晨等导师消息。</p>
+        <div class="menu-grid">
+          <button class="primary" data-action="start">开始游戏</button>
+          <button data-action="continue">继续游戏</button>
+          <button data-action="leaderboard">排行榜</button>
+          <button data-action="saves">本地存档</button>
+          <button data-action="settings">设置</button>
+          <button data-action="about">关于游戏</button>
+        </div>
+        <div class="community">欢迎加入游戏交流群：123855019</div>
+      </div>
+      <div class="lab-hero" aria-label="植物实验室插画">
+        <div class="shelf">
+          <span class="tube"></span><span class="tube teal"></span><span class="bottle"></span>
+          <div class="seedlings"><i></i><i></i><i></i></div>
+        </div>
+        <div class="advisor">
+          <div class="bubble">你来一下我办公室。</div>
+          <div class="avatar teacher">👨‍🏫</div>
+          <div class="folder">进展汇报</div>
+        </div>
+        <div class="student">
+          <div class="avatar coat">🥼</div>
+          <div class="clipboard">实验记录<br>Day 1</div>
+          <div class="pipette"></div>
+        </div>
+        <div class="bench">
+          <div class="potato-plant"><span>🥔</span><i></i><i></i><i></i></div>
+          <div class="chart"><b></b><b></b><b></b></div>
+          <div class="laptop">qPCR.csv</div>
+          <div class="notebook">记录本</div>
+          <div class="incubator">培养箱<br><small>25°C</small></div>
+        </div>
+      </div>
+      <footer>v1.0 · 欢迎加入游戏交流群：123855019 · 本游戏纯属娱乐，如有雷同，说明你真的是研究生。</footer>
+    </section>
+
+    <section id="setupScreen" class="screen setup-screen">
+      <button class="ghost back-home">返回首页</button>
+      <h2>选择研究方向</h2>
+      <div id="topicCards" class="card-grid"></div>
+      <h2>选择难度</h2>
+      <div id="difficultyCards" class="card-grid compact"></div>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen">
+      <header class="topbar">
+        <div>
+          <strong>《研究生的一天》</strong>
+          <span id="dayPeriod">Day 1 · 上午</span>
+        </div>
+        <div id="accountStatus">游客模式：存档仅保存在本设备。</div>
+        <button id="loginBtn">登录</button>
+      </header>
+      <div class="game-layout">
+        <aside class="panel stats-panel">
+          <h3>状态面板</h3>
+          <div id="statsList"></div>
+          <div class="save-tools">
+            <button id="saveBtn">保存进度</button>
+            <button id="continueBtn">继续游戏</button>
+            <button id="clearSaveBtn">清除存档</button>
+            <button id="exportBtn">导出存档</button>
+            <label class="file-btn">导入存档<input id="importInput" type="file" accept="application/json"></label>
+          </div>
+        </aside>
+        <section class="panel main-panel">
+          <div class="stage-row">
+            <div><span>当前阶段</span><strong id="stageName">播种与培养</strong></div>
+            <div><span>研究方向</span><strong id="topicName">马铃薯锌胁迫</strong></div>
+            <div><span>难度</span><strong id="difficultyName">普通模式</strong></div>
+          </div>
+          <div id="advisorLine" class="advisor-line">导师正在输入中...</div>
+          <div id="officeEvent" class="office-event hidden">
+            <h3>导师办公室事件</h3>
+            <p>“你来一下我办公室。”门开着，空气里有打印纸和咖啡的味道。</p>
+            <button data-response="data">带数据硬扛</button>
+            <button data-response="plan">拿计划争取时间</button>
+            <button data-response="honest">诚实承认进度</button>
+          </div>
+          <h3>选择行动</h3>
+          <div id="actionsGrid" class="actions-grid"></div>
+        </section>
+        <aside class="panel log-panel">
+          <h3>每日事件</h3>
+          <div id="eventBox" class="event-box">培养室今天暂时平静。</div>
+          <h3>实验记录本</h3>
+          <ol id="logList" class="log-list"></ol>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="modal">
+    <div class="modal-head">
+      <h2 id="modalTitle">提示</h2>
+      <button id="closeModal" aria-label="关闭">×</button>
+    </div>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <script src="./script.js"></script>
+</body>
+</html>
