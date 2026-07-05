@@ -2,11 +2,6 @@ name = "graduate-game"
 compatibility_date = "2026-07-05"
 pages_build_output_dir = "public"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "graduate-game-db"
-database_id = "填写你的 D1 database_id"
-
 [vars]
 MOCK_TURNSTILE = "false"
 TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
